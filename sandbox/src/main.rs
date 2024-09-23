@@ -1,9 +1,21 @@
 fn main() {
-    println!("Hello, world!");
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {}", count);
+        let mut remaining = 10;
 
-    another_function(5, 'h');
-}
+        loop {
+            println!("remaining = {}", remaining);
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
 
-fn another_function(value: i32, unit_label:char) {
-    println!("The measurement is: {}{}", value, unit_label);
+        count += 1;
+    }
+    println!("End count = {}", count);
 }
